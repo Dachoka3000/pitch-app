@@ -16,8 +16,7 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(200), unique=True,index = True, nullable=False)
     email = db.Column(db.String(300),unique = True, index = True, nullable = False)
-    bio = db.Column(db.String(500))
-    profile_pic_path = db.Column(db.String())
+    bio = db.Column(db.String(255))
     password_hash = db.Column(db.String(50), nullable=False)
 
     @property
@@ -33,3 +32,14 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
+
+class Category(db.Model):
+    '''
+    class model that creates a table for pitch categories
+    '''
+    __tablename__='categories'
+    id = db.Column(db.Integer, primary_key = True)
+    cat = db.Column(db.String(200),unique = True, nullable = False)
+
+class Pitch(db.Model):
+    
