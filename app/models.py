@@ -18,6 +18,8 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(300),unique = True, index = True, nullable = False)
     bio = db.Column(db.String(255))
     password_hash = db.Column(db.String(50), nullable=False)
+    pitchez = db.relationship('Pitch', backref='user')
+    commentz = db.relationship('Comment', backref='user')
 
     @property
     def password(self):
@@ -42,6 +44,11 @@ class Category(db.Model):
     catname = db.Column(db.String(200),unique = True, nullable = False)
     pitches = db.relationship('Pitch',backref='category')
 
+    def __repr__(self):
+        return f'Category {self.catname}'
+
+
+
 class Pitch(db.Model):
     '''
     pitch model that creates a table for pitches
@@ -50,5 +57,22 @@ class Pitch(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     pitchword = db.Column(db.String(), nullable = False)
     catname_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    comments = db.relationship('Comment', backref='comment')
+
+    def __repr__(self):
+        return f'Pitch {self.pitchword}'
+
+class Comment(db.Model):
+    '''
+    comment model that creates a table for comments
+    '''
+    __tablename__='comments'
+    id = db.Column(db.Integer, primary_key = True)
+    commentword = db.Column(db.String())
+    pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
+    users_id = db.Column(db.Integer,db.ForeignKey('users.id'))
 
 
+    def __repr__(self):
+        return f'Comment {self.commentword}'
