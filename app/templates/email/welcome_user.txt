@@ -1,0 +1,5 @@
+Hello {{user.username}}
+Welcome to Pitch Up
+Thank you for signing up and joining our pitchy family. Make the most of it by creating your own pitches and viewing comments and votes by other members.
+You can also comment and vote on other members' pitches too. Ready?
+Let's get pitchy!
