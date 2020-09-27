@@ -39,7 +39,16 @@ class Category(db.Model):
     '''
     __tablename__='categories'
     id = db.Column(db.Integer, primary_key = True)
-    cat = db.Column(db.String(200),unique = True, nullable = False)
+    catname = db.Column(db.String(200),unique = True, nullable = False)
+    pitches = db.relationship('Pitch',backref='category')
 
 class Pitch(db.Model):
-    
+    '''
+    pitch model that creates a table for pitches
+    '''
+    __tablename__='pitches'
+    id = db.Column(db.Integer, primary_key = True)
+    pitchword = db.Column(db.String(), nullable = False)
+    catname_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
+
+
