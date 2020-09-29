@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/showpitch.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet"> 
+
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="container">
+        <h1>Get Your Pitch On!</h1>
+    </div>
+    <div class="container">
+        {% for i in pitch_examples %}
+            <div class="card" style="border: 2px solid black; margin: 3px;">
+                <div class="card-header">
+                    <h3>{{ i.category }}</h3>
+                </div>
+                <div class="card-body">
+                    <p>{{ i.pitchword }}</p>
+                </div>
+                <div class="card-footer">
+                    <p>By {{i.user}}</p>
+                    <p>{{like_form}} {{p}}</p>
+                    <p>{{dislike_form}} {{p}}</p>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+{%endblock%}
