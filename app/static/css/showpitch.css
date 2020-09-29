@@ -1,0 +1,7 @@
+body {
+    background-color:#a5a58d;
+    /* background-image: url(../photos/silver.jpg); */
+    background-attachment: fixed;
+    background-size: cover;
+    height: vh;
+}

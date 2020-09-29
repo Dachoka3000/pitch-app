@@ -1,16 +1,12 @@
 body {
-    background: hsla(152, 100%, 50%, 1);
-
-    background: linear-gradient(90deg, hsla(152, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
-
-    background: -moz-linear-gradient(90deg, hsla(152, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
-
-    background: -webkit-linear-gradient(90deg, hsla(152, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
-
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#00FF87", endColorstr="#60EFFF", GradientType=1 );
+    /* background-color:#a5a58d; */
+    background-image: url(../photos/silver.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    height: vh;
 }
+
 h1 {
-    font-size: larger;
     font-weight: bolder;
     align-self: center;
     justify-content: center;
