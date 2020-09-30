@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/showpitch.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet"> 
+
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="container">
+        <h1>Pick Up Lines</h1>
+    </div>
+    <div class="container">
+        {% for i in pickups_pitches %}
+            <div class="card" style="border: 2px solid black; margin: 3px;">
+                <div class="card-header">
+                    <h3>{{ i.category }}</h3>
+                </div>
+                <div class="card-body">
+                    <h4>{{ i.pitchword }}</h4>
+                </div>
+                <div class="card-footer">
+                    <p>By {{i.user}}</p>
+                    <input type="radio" name="like" id="upvote">
+                    <label>Upvote</label>
+                    <input type="radio" name="like" id="downvote">
+                    <label>Downvote</label>
+                    <button><a href="{{url_for('main.comment',print_id=i.id)}}">Comment</a></button>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+{%endblock%}

@@ -7,13 +7,12 @@ class UserModelTest(unittest.TestCase):
     '''
 
     def setUp(self):
-        self.new_user = User(password = 'emobird')
+        self.new_user = User(username='milly', email='milly@email.com', password_hash = 'emobird')
 
     def test_password_setter(self):
         self.assertTrue(self.new_user.password_hash is not None)
 
     def test_no_access_password(self):
-         def test_no_access_password(self):
         with self.assertRaises(AttributeError):
             self.new_user.password
 

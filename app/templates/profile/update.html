@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
+{% extends 'base.html' %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/profile.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet"> 
+
+{% endblock %}
+
 {% block content %}
 <div class="container">
   {{wtf.quick_form(form)}}

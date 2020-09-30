@@ -9,19 +9,10 @@
 {% block content %}
 <div class="container-fluid">
     <div class="container">
-        <h1>Get Your Pitch On!</h1>
+        <h1>Interviews</h1>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-3"><button><a href="/business">Business</a></button></div>
-            <div class="col-md-3"><button><a href="/auditions">Auditions</a></button></div>
-            <div class="col-md-3"><button><a href="/interviews">interviews</a></button></div>
-            <div class="col-md-3"><button><a href="/pickups">Pick Up Lines</a></button></div>
-
-        </div>
-    </div>
-    <div class="container">
-        {% for i in pitch_examples %}
+        {% for i in interviews_pitches %}
             <div class="card" style="border: 2px solid black; margin: 3px;">
                 <div class="card-header">
                     <h3>{{ i.category }}</h3>
@@ -35,12 +26,11 @@
                     <label>Upvote</label>
                     <input type="radio" name="like" id="downvote">
                     <label>Downvote</label>
-                    <button><a href="{{url_for('main.comment',pitch_id=pitch.id)}}">Comment</a></button>
-                   
+                    <button><a href="{{url_for('main.comment',print_id=i.id)}}">Comment</a></button>
                 </div>
             </div>
 
         {% endfor %}
     </div>
 </div>
-{%endblock%}
+{% endblock %}
